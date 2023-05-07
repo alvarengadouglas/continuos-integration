@@ -11,7 +11,7 @@ on:
 
 jobs:
 
-  build:
+  Test:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -29,6 +29,11 @@ jobs:
 
     - name: Test
       run: go test -v main_test.go
-      
+  
+  Build:
+    needs: Test
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
     - name: Build-GO
       run: go build -v main.go
