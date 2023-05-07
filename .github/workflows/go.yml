@@ -31,7 +31,7 @@ jobs:
       run: go test -v main_test.go
       
     - name: Secrets
-      run: echo ${{ SECRETS.SECRET_TEST }}
+      run: echo ${{ secrets.SECRET_TEST }}
   
   Build:
     needs: Test
